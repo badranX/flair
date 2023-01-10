@@ -397,6 +397,7 @@ class Classifier(Model[DT], typing.Generic[DT]):
             accuracy_score = round(sklearn.metrics.accuracy_score(y_true, y_pred), 4)
             macro_f_score = round(classification_report_dict["macro avg"]["f1-score"], 4)
 
+            print("percentage_non_0_prediction: ", (torch.tensor(y_pred)>0.5).float().mean())
             # if there is only one label, then "micro avg" = "macro avg"
             if len(target_names) == 1:
                 classification_report_dict["micro avg"] = classification_report_dict["macro avg"]

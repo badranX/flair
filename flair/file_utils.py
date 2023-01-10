@@ -84,6 +84,8 @@ def cached_path(url_or_filename: str, cache_dir: Union[str, Path]) -> Path:
     """
     cache_dir = Path(cache_dir)
 
+    print(flair.__dict__)
+    print(flair)
     if flair.cache_root not in cache_dir.parents:
         dataset_cache = flair.cache_root / cache_dir
     else:
